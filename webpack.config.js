@@ -13,6 +13,12 @@ module.exports = {
     module: {
         rules: [
             {
+                test:/\.js$/,
+                use:[
+                    path.resolve('./my-webpack-loader')
+                ]
+            },
+            {
                 test: /\.css$/,
                 use: [
                     'style-loader',
@@ -20,10 +26,10 @@ module.exports = {
                 ]
             },
             {
-                test: /\.jpg$/,
+                test: /\.(jpg|png|gif|svg)$/,
                 use:[
-                    'file-loader'
-                ]
+                    'url-loader'
+                ],
             }
         ]
     }
